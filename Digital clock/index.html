@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>practical 7</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            color: #a7fbf8;
+            background: #020008;
+
+        }
+
+        #clock {
+            font-size: 48px;
+            text-align: center;
+            text-shadow: 1px 1px pink;
+
+        }
+
+        .main {
+            position: relative;
+            margin: 200px auto 0;
+            width: 250px;
+            height: 150px;
+
+            background: linear-gradient(45deg, #000 #262626);
+            text-align: center;
+            position: absolute;
+            display: grid;
+            place-content: center;
+            padding: 25px;
+            position: absolute;
+            top: 1%;
+            left: 42%;
+            transform: translate(-50, -50);
+
+
+        }
+
+        .main::before,
+        .main::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background: linear-gradient(45deg, #fb0049, #0000ff, #00ff00, #ffff00, #fb0049, #0000ff, #00ff00, #ffff00);
+            background-size: 400%;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            z-index: -1;
+            animation: animate 20s linear infinite;
+
+        }
+
+        .main::after {
+            filter: blur(8px);
+        }
+
+        @keyframes animate {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 300% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+
+        }
+
+        h1 {
+            text-shadow: 1px 1px rgb(225, 107, 18);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Digital Clock</h1>
+        <br>
+
+        <div id="clock">
+            <?php
+        // Get the current time
+        $currentTime = date("H:i:s");
+
+        // Display the current time
+        echo $currentTime;
+        ?>
+        </div>
+
+    </div>
+
+    <script>
+        // Function to update the clock every second
+        function updateClock() {
+            var clockElement = document.getElementById("clock");
+            var currentTime = new Date().toLocaleTimeString();
+
+            clockElement.textContent = currentTime;
+        }
+
+        // Update the clock immediately
+        updateClock();
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+
+</html>
