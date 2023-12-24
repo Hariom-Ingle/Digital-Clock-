@@ -1,6 +1,6 @@
-<h1 style="color:red">  # 📚 FlashCardMaster </h1>
+# 📚 FlashCardMaster  
 
-## Team Name: Alpha Coders
+## Team Name: Alpha Coders 🤖
 
 ### Team Members:
 1. Pratik Khose
